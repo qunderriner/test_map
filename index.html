@@ -109,7 +109,7 @@
         var lon = e.features[0].properties.longitude;
         var lat = e.features[0].properties.latitude;
         var coordinates = new mapboxgl.LngLat(lon, lat);
-        var content = primary_type + block;
+        var content = primary_type + rent + arrest + population;
         popup.setLngLat(coordinates)
           .setHTML(content)
           .addTo(map);
