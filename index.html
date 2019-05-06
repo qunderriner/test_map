@@ -5,7 +5,7 @@
 
 <head>
   <meta charset='utf-8' />
-  <title> in Chicago</title>
+  <title> Crime in Chicago</title>
   <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
@@ -103,13 +103,12 @@
       map.on('mouseenter', 'tilequery-points', function(e) {
         map.getCanvas().style.cursor = 'pointer';
         var population = '<h3>' + e.features[0].properties.population + '</h3>';
-        var rent = '<h4>' + e.features[0].properties.rent + '</h4>';
-        var arrest = '<h4>' + e.features[0].properties.arrest + '</h4>';
-        var primary_type = '<p>' + e.features[0].properties.primary_type + '</p>';
+        var rent = '<h3>' + e.features[0].properties.rent + '</h3>';
+        var primary_type = '<h3>' + e.features[0].properties.primary_type + '</h3>';
         var lon = e.features[0].properties.longitude;
         var lat = e.features[0].properties.latitude;
         var coordinates = new mapboxgl.LngLat(lon, lat);
-        var content = primary_type + rent + arrest + population;
+        var content = primary_type + rent + population;
         popup.setLngLat(coordinates)
           .setHTML(content)
           .addTo(map);
