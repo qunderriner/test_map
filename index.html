@@ -102,15 +102,13 @@
       var popup = new mapboxgl.Popup;
       map.on('mouseenter', 'tilequery-points', function(e) {
         map.getCanvas().style.cursor = 'pointer';
-        var population = '<h3>' + "Neighborhood Population ="+ e.features[0].properties.population + '</h3>';
-        var rent = '<h3>' "Averge Neighborhood Rent =" + e.features[0].properties.rent + '</h3>';
-        var primary_type = '<h3>'+ "Type of Crime " + e.features[0].properties.primary_type + '</h3>';
+        var primary_type = '<h3>' + e.features[0].properties.primary_type + '</h3>';
         var obj = JSON.parse(e.features[0].properties.tilequery);
         var distance = '<p>' + (obj.distance / 1609.344).toFixed(2) + ' mi. from location' + '</p>';  
         var lon = e.features[0].properties.longitude;
         var lat = e.features[0].properties.latitude;
         var coordinates = new mapboxgl.LngLat(lon, lat);
-        var content = primary_type + rent + population;
+        var content = primary_type + distance;
         popup.setLngLat(coordinates)
           .setHTML(content)
           .addTo(map);
