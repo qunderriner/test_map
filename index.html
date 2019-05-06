@@ -105,6 +105,8 @@
         var population = '<h3>' + e.features[0].properties.population + '</h3>';
         var rent = '<h3>' + e.features[0].properties.rent + '</h3>';
         var primary_type = '<h3>' + e.features[0].properties.primary_type + '</h3>';
+        var obj = JSON.parse(e.features[0].properties.tilequery);
+        var distance = '<p>' + (obj.distance / 1609.344).toFixed(2) + ' mi. from location' + '</p>';  
         var lon = e.features[0].properties.longitude;
         var lat = e.features[0].properties.latitude;
         var coordinates = new mapboxgl.LngLat(lon, lat);
