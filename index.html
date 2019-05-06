@@ -50,8 +50,8 @@
       geocoder.on('result', function(data) {
         var point = data.result.center;
         var tileset = 'qunderriner.7a94wqx2';
-        var radius = 5000;
-        var limit = 200;
+        var radius = 1200;
+        var limit = 50;
         var query = 'https://api.mapbox.com/v4/' + tileset + '/tilequery/' + point[0] + ',' + point[1] + '.json?radius=' + radius + '&limit= ' + limit + ' &access_token=' + mapboxgl.accessToken;
         marker.setLngLat(point).addTo(map);
         $.ajax({
